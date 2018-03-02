@@ -27,23 +27,23 @@ class PlayerMusicService : Service(){
     override fun onCreate() {
         super.onCreate()
         Log.d(TAG, "启动播放音乐service")
-        mediaPlayer = MediaPlayer.create(applicationContext, R.raw.silent)
+        mediaPlayer = MediaPlayer.create(applicationContext, R.raw.yiqianlengyiye)
         mediaPlayer.isLooping = true // 设置播放器循环播放
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.d(TAG, "onStartCommand")
         // 在线程播放音乐
-        Thread { Runnable { startPlayMusic() } }.start()
+        Thread(Runnable { startPlayMusic() }).start()
         return START_STICKY
     }
 
-    fun startPlayMusic() {
+    private fun startPlayMusic() {
         Log.d(TAG, "启动后台播放音乐")
         mediaPlayer.start()
     }
 
-    fun stopPlayMusic() {
+    private fun stopPlayMusic() {
         Log.d(TAG, "停止后台播放音乐")
         mediaPlayer.stop()
     }

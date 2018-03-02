@@ -21,4 +21,8 @@
         <item name="android:windowNoDisplay">false</item>
     </style>
 
+    <style name="LockScreenActivityStyle" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
+
 </resources>

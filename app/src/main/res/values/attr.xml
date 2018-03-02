@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LinearGradientView">
+        <attr name="textColor" format="color"/>
+        <attr name="lightColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="textStrokeWidth" format="dimension"/>
+        <attr name="text" format="string"/>
+        <attr name="duration" format="integer"/>
+    </declare-styleable>
+</resources>
