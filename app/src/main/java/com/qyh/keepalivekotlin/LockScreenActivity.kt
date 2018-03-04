@@ -11,8 +11,8 @@ import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import com.qyh.keepalivekotlin.custom.SwipeBackLayout
-import com.qyh.keepalivekotlin.service.TIME_ACTION
 import com.qyh.keepalivekotlin.utils.BroadcastManager
+import com.qyh.keepalivekotlin.utils.Contants.Companion.TIME_ACTION
 import kotlinx.android.synthetic.main.activity_lock_screen.*
 
 

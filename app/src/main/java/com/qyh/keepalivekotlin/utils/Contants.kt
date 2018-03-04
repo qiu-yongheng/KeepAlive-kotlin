@@ -12,5 +12,6 @@ class Contants {
     companion object {
         val DEBUG = true
         val PACKAGE_NAME = "com.qyh.keepalivekotlin"
+        val TIME_ACTION = "RUNTIME"
     }
 }

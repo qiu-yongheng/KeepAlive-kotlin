@@ -24,5 +24,6 @@ class SystemUtils {
             // 遍历，进程名即包名
             return appProcessInfoList.any { packageName == it.processName }
         }
+
     }
 }
