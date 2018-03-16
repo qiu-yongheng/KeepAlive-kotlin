@@ -25,5 +25,11 @@ class SystemUtils {
             return appProcessInfoList.any { packageName == it.processName }
         }
 
+        fun isServiceAlive(context: Context, packageName : String) : Boolean {
+            val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+            val runningServices = activityManager.getRunningServices(100)
+            return runningServices.any {true}
+        }
+
     }
 }

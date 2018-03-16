@@ -39,6 +39,9 @@ class ScreenReceiverUtils(private val context: Context) {
         context.unregisterReceiver(screenReceiver)
     }
 
+    /**
+     * 广播接收
+     */
     class ScreenReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             val action = intent?.action
@@ -51,6 +54,9 @@ class ScreenReceiverUtils(private val context: Context) {
         }
     }
 
+    /**
+     * 屏幕状态改变监听
+     */
     interface ScreenStatusListener {
         fun onScreenOn()
         fun onScreenOff()

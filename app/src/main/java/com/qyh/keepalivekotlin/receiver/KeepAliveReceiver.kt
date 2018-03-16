@@ -21,7 +21,7 @@ import com.qyh.keepalivekotlin.utils.SystemUtils
  * @desc
  *  监听系统广播，复活进程
  *  (1) 网络变化广播
- *  (2) 屏幕解锁广播
+ *  (2) 屏幕解锁广播(不能使用静态注册)
  *  (3) 应用安装卸载广播
  *  (4) 开机广播
  */

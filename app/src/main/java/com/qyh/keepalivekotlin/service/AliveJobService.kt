@@ -2,13 +2,9 @@ package com.qyh.keepalivekotlin.service
 
 import android.app.job.JobParameters
 import android.app.job.JobService
-import android.content.Intent
 import android.os.Handler
 import android.os.Message
 import android.util.Log
-import com.qyh.eyekotlin.utils.showToast
-import com.qyh.keepalivekotlin.SportActivity
-import com.qyh.keepalivekotlin.utils.Contants
 import com.qyh.keepalivekotlin.utils.SystemUtils
 
 /**
@@ -22,15 +18,18 @@ import com.qyh.keepalivekotlin.utils.SystemUtils
 class AliveJobService : JobService(){
     var handle = Handler({msg ->
         // 具体任务逻辑
-        if (SystemUtils.isAppAlive(applicationContext, Contants.PACKAGE_NAME)) {
-            showToast("APP正在运行...")
-        } else {
-            val intent = Intent(applicationContext, SportActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(intent)
-            Log.d(TAG, "APP杀死重启中")
-            showToast("APP杀死重启中")
-        }
+//        if (SystemUtils.isAppAlive(applicationContext, Contants.PACKAGE_NAME)) {
+//            //showToast("APP正在运行...")
+//            Log.d(TAG, "APP正在运行...")
+//        } else {
+//            val intent = Intent(applicationContext, SportActivity::class.java)
+//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+//            startActivity(intent)
+//            Log.d(TAG, "APP杀死重启中")
+//            showToast("APP杀死重启中")
+//        }
+
+        SystemUtils.isServiceAlive(applicationContext, "")
         // 任务执行完后记得调用jobFinished通知系统释放相关资源
         jobFinished(msg.obj as JobParameters, false)
         true

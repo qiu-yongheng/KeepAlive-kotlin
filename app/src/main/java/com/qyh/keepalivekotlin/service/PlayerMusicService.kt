@@ -1,5 +1,6 @@
 package com.qyh.keepalivekotlin.service
 
+import android.app.Notification
 import android.app.Service
 import android.content.Intent
 import android.media.MediaPlayer
@@ -26,15 +27,21 @@ class PlayerMusicService : Service(){
 
     override fun onCreate() {
         super.onCreate()
+        val builder = Notification.Builder(this)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle("播放音乐")
+                .setContentText("后台播放音乐中...")
+        startForeground(DaemonService.NOTICE_ID, builder.build())
+
         Log.d(TAG, "启动播放音乐service")
-        mediaPlayer = MediaPlayer.create(applicationContext, R.raw.yiqianlengyiye)
+        mediaPlayer = MediaPlayer.create(applicationContext, R.raw.silent)
         mediaPlayer.isLooping = true // 设置播放器循环播放
+        Thread(Runnable { startPlayMusic() }).start()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.d(TAG, "onStartCommand")
         // 在线程播放音乐
-        Thread(Runnable { startPlayMusic() }).start()
         return START_STICKY
     }
 
